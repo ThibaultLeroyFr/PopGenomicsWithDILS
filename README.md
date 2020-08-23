@@ -18,7 +18,7 @@ This repository regroups all scripts used to generate the inputfiles in order to
 <p>module load java # load java if needed for your cluster # GATK requires java8 !</p>
 
 <p>cd /sandbox/users/tleroy/Francesca/gvcf/ </p>
-<p><em># CMD bash 2_snpindel_callingGVCF.sh [IDname] [Reference_Genome] [output_directory] [Number_of_CPU_to_use] </em></p>
+<p><em># CMD: bash 2_snpindel_callingGVCF.sh [IDname] [Reference_Genome] [output_directory] [Number_of_CPU_to_use] </em></p>
 <p> bash $pathtoscripts/2_snpindel_callingGVCF.sh $listacc $refile $pathtodata/ 4 </p>
 </code>
 
