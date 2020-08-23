@@ -13,12 +13,12 @@ refile=$(echo "/sandbox/users/tleroy/Francesca/Potra_genome2.2/Potra02_genome_so
 
 pathtodata=$(echo "/sandbox/users/tleroy/Francesca/mapping") # the repertory containing all individus <br><br>
 pathtoscripts=$(echo "/sandbox/users/tleroy/AfricanRice/scripts/PipelineMappingCalling/") # set path for 1_mapping.sh and 2_snpindel_callingGVCF.sh <br><br>
-# Please change file path in 1_mapping.sh and in 2_snpindel_callingGVCF.sh ! <br><br>
+\# Please change file path in 1_mapping.sh and in 2_snpindel_callingGVCF.sh ! <br><br>
 
 module load java # load java if needed for your cluster # GATK requires java8 !<br><br>
 
 cd /sandbox/users/tleroy/Francesca/gvcf/<br><br>
-# CMD bash 2_snpindel_callingGVCF.sh [IDname] [Reference_Genome] [output_directory] [Number_of_CPU_to_use] <br><br>
+\# CMD bash 2_snpindel_callingGVCF.sh [IDname] [Reference_Genome] [output_directory] [Number_of_CPU_to_use] <br><br>
 bash $pathtoscripts/2_snpindel_callingGVCF.sh $listacc $refile $pathtodata/ 4<br><br>
 </code>
 
