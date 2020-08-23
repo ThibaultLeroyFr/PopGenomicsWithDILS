@@ -39,7 +39,17 @@ cd /sandbox/users/tleroy/Francesca/gvcf/ <br>
 bash $pathtoscripts/2_snpindel_callingGVCF.sh $listacc $refile $pathtodata/ 4 <br><p>
 
 
-### 3/ Joint Genotyping (./PipelineMappingCalling)
+### 3/ Joint Genotyping & SNP filtering (./PipelineMappingCalling)
 
 
 
+
+### 4/ Reconstructing fasta sequences & extracting genomic blocks (or CDS) (./)
+Note: Depending of the number of individuals and the length of the longest scaffold (or chromosome), this step can be memory-intensive. 
+
+
+
+### 5/ Computing summary statistics (./)
+
+
+### 6/ Generating input files for DILS (./)
