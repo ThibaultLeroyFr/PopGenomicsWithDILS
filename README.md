@@ -44,12 +44,34 @@ bash $pathtoscripts/2_snpindel_callingGVCF.sh $listacc $refile $pathtodata/ 4 <b
 
 
 
-### 4/ Reconstructing fasta sequences & extracting genomic blocks (or CDS) (./)
+### 4/ Reconstructing fasta sequences & extracting genomic blocks (or CDS) (./Generate_Sequence_Blocks)
 Note: Depending of the number of individuals and the length of the longest scaffold (or chromosome), this step can be memory-intensive. 
 
+<ins>1.1 Reconstruct fasta sequences</ins>
+
+<p>/# define file & directory names (full path)</br>
+vcffile=$(echo "/bigvol/benoit/Analyses/Temp_Tibo/Francesca/joint_pdav/merged_joint_bwa_mem_mdup_raw.filtered.vcf")</br>
+gfffile=$(echo "/bigvol/benoit/Analyses/Temp_Tibo/Francesca/Potra_genome2.2/Potra02_genes.gff.clean")</br>
+outputdirscaffolds=$(echo "/bigvol/benoit/Analyses/Temp_Tibo/Francesca/joint_pdav/Pdavidiana_fasta_files_withoutquantiles_scaffold")</br>
+cutoffqualitybases=$(echo "20") <em> # minimum illumina quality at the base position, here >= 20 </em></br>
+cutoffcovmin=$(echo "3") <em> # minimum coverage per individual (cov < minimum => position will be hard masked = "N") </em></br>
+cutoffcovmax=$(echo "50") <em> # maximum coverage per individual (cov > maximum => hard masked) </em></br>
+outprefix=$(echo "Pdavidiana_withoutquantiles")</em></br>
+
+if [ -d "$outputdirscaffolds" ]; then</br>
+    rm $outputdirscaffolds/*.fst</br>
+else</br>
+    mkdir "$outputdirscaffolds"</br>
+fi</br>
+bash /home/thibault/scripts/script_VCF2Fasta_withcovqual.sh $vcffile $outputdirscaffolds $cutoffqualitybases $cutoffcovmin $cutoffcovmax</br>
+
+<ins>1.2 Extract genomic windows </ins>
+    
+    
+<ins>1.3 Extract some specific features, such as CDS or genes </ins>
 
 
-### 5/ Computing summary statistics (./)
+### 5/ Computing summary statistics (./Compute_SumStats)
 
 
 ### 6/ Generating input files for DILS (./)
