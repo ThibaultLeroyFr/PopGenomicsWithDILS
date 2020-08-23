@@ -8,10 +8,10 @@ This repository regroups all scripts used to generate the inputfiles in order to
 ### 2/ Variant calling (./PipelineMappingCalling)
 
 <code>
-<p> listacc=$(echo "pdav73") <br>
-refile=$(echo "/sandbox/users/tleroy/Francesca/Potra_genome2.2/Potra02_genome_softmasked.fasta" )  #reference file (need to be indexed => script_index.sh) ! <br>
+<p> listacc=$(echo "pdav73") 
+<p> refile=$(echo "/sandbox/users/tleroy/Francesca/Potra_genome2.2/Potra02_genome_softmasked.fasta" )  #reference file (need to be indexed => script_index.sh) ! <p>
 
-pathtodata=$(echo "/sandbox/users/tleroy/Francesca/mapping") # the repertory containing all individus <br>
+<p> pathtodata=$(echo "/sandbox/users/tleroy/Francesca/mapping") # the repertory containing all individus <p>
 pathtoscripts=$(echo "/sandbox/users/tleroy/AfricanRice/scripts/PipelineMappingCalling/") # set path for 1_mapping.sh and 2_snpindel_callingGVCF.sh <br>
 \# Please change file path in 1_mapping.sh and in 2_snpindel_callingGVCF.sh ! <br>
 
