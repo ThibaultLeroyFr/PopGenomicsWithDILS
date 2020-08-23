@@ -8,20 +8,18 @@ This repository regroups all scripts used to generate the inputfiles in order to
 ### 2/ Variant calling (./PipelineMappingCalling)
 
 <code>
-listacc=$(echo "pdav73") </br>
-refile=$(echo "/sandbox/users/tleroy/Francesca/Potra_genome2.2/Potra02_genome_softmasked.fasta" )  #reference file (need to be indexed => script_index.sh) ! <br>
+listacc=$(echo "pdav73") <br> <br>
+refile=$(echo "/sandbox/users/tleroy/Francesca/Potra_genome2.2/Potra02_genome_softmasked.fasta" )  #reference file (need to be indexed => script_index.sh) ! <br><br>
 
-pathtodata=$(echo "/sandbox/users/tleroy/Francesca/mapping") # the repertory containing all individus <br>
-pathtoscripts=$(echo "/sandbox/users/tleroy/AfricanRice/scripts/PipelineMappingCalling/") # set path for 1_mapping.sh and 2_snpindel_callingGVCF.sh <br>
-# Please change file path in 1_mapping.sh and in 2_snpindel_callingGVCF.sh ! <br>
+pathtodata=$(echo "/sandbox/users/tleroy/Francesca/mapping") # the repertory containing all individus <br><br>
+pathtoscripts=$(echo "/sandbox/users/tleroy/AfricanRice/scripts/PipelineMappingCalling/") # set path for 1_mapping.sh and 2_snpindel_callingGVCF.sh <br><br>
+# Please change file path in 1_mapping.sh and in 2_snpindel_callingGVCF.sh ! <br><br>
 
-module load java # load java if needed for your cluster # GATK requires java8 !<br>
+module load java # load java if needed for your cluster # GATK requires java8 !<br><br>
 
-### commandline: <br>
-
-cd /sandbox/users/tleroy/Francesca/gvcf/<br>
-# CMD bash 2_snpindel_callingGVCF.sh IDname Reference_Genome output_directory Number_of_CPU_to_use <br>
-bash $pathtoscripts/2_snpindel_callingGVCF.sh $listacc $refile $pathtodata/ 4<br>
+cd /sandbox/users/tleroy/Francesca/gvcf/<br><br>
+# CMD bash 2_snpindel_callingGVCF.sh [IDname] [Reference_Genome] [output_directory] [Number_of_CPU_to_use] <br><br>
+bash $pathtoscripts/2_snpindel_callingGVCF.sh $listacc $refile $pathtodata/ 4<br><br>
 <\code>
 
 ### 3/ Joint Genotyping (./PipelineMappingCalling)
