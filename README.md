@@ -8,7 +8,7 @@ Thibault Leroy: thibault.leroy_at_univie.ac.at<br>
 
 ### 1/ From raw reads to read mapping (./PipelineMappingCalling)
 
-<u>1.1 Trimming </u>
+==1.1 Trimming==
 java -jar /home/fs71105/francescab/software/Trimmomatic-0.39/trimmomatic-0.39.jar PE -threads 1 -phred33 /home/fs71105/francescab/pdav/pdav73R1.fastq.gz /home/fs71105/francescab/pdav/pdav73R2.fastq.gz /home/fs71105/francescab/trimming/pdav73_1_cleaned.fastq.gz /home/fs71105/francescab/trimming/pdav73_1_cleaned_unpaired.fastq.gz /home/fs71105/francescab/trimming/pdav73_2_cleaned.fastq.gz /home/fs71105/francescab/trimming/pdav73_2_cleaned_unpaired.fastq.gz  LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:50
 
 <u>1.2 Indexing references files</u>
