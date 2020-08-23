@@ -60,9 +60,9 @@ outprefix=$(echo "Pdavidiana_withoutquantiles")</em></br>
 
 <b><em> Main script (see script_VCF2Fasta_withcovqual.sh for all details) </b></em></br>
 if [ -d "$outputdirscaffolds" ]; then</br>
-    rm $outputdirscaffolds/*.fst</br>
+___rm $outputdirscaffolds/*.fst</br>
 else</br>
-    mkdir "$outputdirscaffolds"</br>
+___mkdir "$outputdirscaffolds"</br>
 fi</br>
 bash /home/thibault/scripts/script_VCF2Fasta_withcovqual.sh $vcffile $outputdirscaffolds $cutoffqualitybases $cutoffcovmin $cutoffcovmax</br>
 
