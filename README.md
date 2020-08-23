@@ -12,8 +12,8 @@ This repository regroups all scripts used to generate the inputfiles in order to
 <p> refile=$(echo "/sandbox/users/tleroy/Francesca/Potra_genome2.2/Potra02_genome_softmasked.fasta" )  #reference file (need to be indexed => script_index.sh) ! <p>
 
 <p> pathtodata=$(echo "/sandbox/users/tleroy/Francesca/mapping") # the repertory containing all individus <p>
-pathtoscripts=$(echo "/sandbox/users/tleroy/AfricanRice/scripts/PipelineMappingCalling/") # set path for 1_mapping.sh and 2_snpindel_callingGVCF.sh <br>
-\# Please change file path in 1_mapping.sh and in 2_snpindel_callingGVCF.sh ! <br>
+<p> pathtoscripts=$(echo "/sandbox/users/tleroy/AfricanRice/scripts/PipelineMappingCalling/")  <p>
+<p>\<em># Please change file path in 1_mapping.sh and in 2_snpindel_callingGVCF.sh ! </em><p>
 
 module load java # load java if needed for your cluster # GATK requires java8 !<br>
 
