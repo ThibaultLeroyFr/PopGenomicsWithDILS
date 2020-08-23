@@ -12,17 +12,16 @@ Thibault Leroy: thibault.leroy_at_univie.ac.at<br>
 ### 2/ Variant calling (./PipelineMappingCalling)
 
 <p> listacc=$(echo "pdav73")  <em> #SampleID </em></br>
- refile=$(echo "/sandbox/users/tleroy/Francesca/Potra_genome2.2/Potra02_genome_softmasked.fasta" ) <em> #reference file (need to be indexed => script_index.sh) ! </em></p>
+ refile=$(echo "/sandbox/users/tleroy/Francesca/Potra_genome2.2/Potra02_genome_softmasked.fasta" ) <em> #reference file (need to be indexed => script_index.sh) ! </em><br>
+pathtodata=$(echo "/sandbox/users/tleroy/Francesca/mapping") <em> # the repertory containing all individus  </em><br>
+ pathtoscripts=$(echo "/sandbox/users/tleroy/AfricanRice/scripts/PipelineMappingCalling/") <br>
+<em># Please change file path in 1_mapping.sh and in 2_snpindel_callingGVCF.sh ! </em><br>
 
-<p> pathtodata=$(echo "/sandbox/users/tleroy/Francesca/mapping") <em> # the repertory containing all individus  </em></p>
-<p> pathtoscripts=$(echo "/sandbox/users/tleroy/AfricanRice/scripts/PipelineMappingCalling/")  </p>
-<p><em># Please change file path in 1_mapping.sh and in 2_snpindel_callingGVCF.sh ! </em></p>
+module load java <em> # load java if needed for your computing cluster (# GATK requires java8) !</em><br>
 
-<p>module load java <em> # load java if needed for your computing cluster (# GATK requires java8) !</em></p>
-
-<p>cd /sandbox/users/tleroy/Francesca/gvcf/ </p>
-<p><em># CMD: bash 2_snpindel_callingGVCF.sh [SampleIDn] [Reference_Genome] [output_directory] [Number_of_CPU_to_use] </em></p>
-<p> bash $pathtoscripts/2_snpindel_callingGVCF.sh $listacc $refile $pathtodata/ 4 </p>
+cd /sandbox/users/tleroy/Francesca/gvcf/ <br>
+<em># CMD: bash 2_snpindel_callingGVCF.sh [SampleIDn] [Reference_Genome] [output_directory] [Number_of_CPU_to_use] </em><br>
+bash $pathtoscripts/2_snpindel_callingGVCF.sh $listacc $refile $pathtodata/ 4 <br><p>
 
 
 ### 3/ Joint Genotyping (./PipelineMappingCalling)
