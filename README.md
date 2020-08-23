@@ -8,10 +8,10 @@ Thibault Leroy: thibault.leroy_at_univie.ac.at<br>
 
 ### 1/ From raw reads to read mapping (./PipelineMappingCalling)
 
-\#1.1 Trimming
+<u>1.1 Trimming </u>
 java -jar /home/fs71105/francescab/software/Trimmomatic-0.39/trimmomatic-0.39.jar PE -threads 1 -phred33 /home/fs71105/francescab/pdav/pdav73R1.fastq.gz /home/fs71105/francescab/pdav/pdav73R2.fastq.gz /home/fs71105/francescab/trimming/pdav73_1_cleaned.fastq.gz /home/fs71105/francescab/trimming/pdav73_1_cleaned_unpaired.fastq.gz /home/fs71105/francescab/trimming/pdav73_2_cleaned.fastq.gz /home/fs71105/francescab/trimming/pdav73_2_cleaned_unpaired.fastq.gz  LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:50
 
-\#1.2 Indexing referneces files
+<u>1.2 Indexing references files</u>
 <p><em># bwa</em><br> 
 /home/fs71105/francescab/software/bwa-0.7.17/bwa index /home/fs71105/francescab/Potra_genome2.2/Potra02_genome_softmasked.fasta <br>
 <em># samtools</em><br> 
@@ -21,7 +21,7 @@ java -jar /home/fs71105/francescab/software/picard/picard.jar CreateSequenceDict
       R=/home/fs71105/francescab/Potra_genome2.2/Potra02_genome_softmasked.fasta <br> 
       O=/home/fs71105/francescab/Potra_genome2.2/Potra02_genome_softmasked.dict <br> </p>
 
-\#1.3 Mapping
+<u>1.3 Mapping</u>
 
 
 ### 2/ Variant calling (./PipelineMappingCalling)
