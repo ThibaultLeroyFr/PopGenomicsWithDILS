@@ -9,18 +9,18 @@ This repository regroups all scripts used to generate the inputfiles in order to
 
 <code>
 <p> listacc=$(echo "pdav73") 
-<p> refile=$(echo "/sandbox/users/tleroy/Francesca/Potra_genome2.2/Potra02_genome_softmasked.fasta" )  #reference file (need to be indexed => script_index.sh) ! <p>
+<p> refile=$(echo "/sandbox/users/tleroy/Francesca/Potra_genome2.2/Potra02_genome_softmasked.fasta" )  #reference file (need to be indexed => script_index.sh) ! </p>
 
-<p> pathtodata=$(echo "/sandbox/users/tleroy/Francesca/mapping") # the repertory containing all individus <p>
-<p> pathtoscripts=$(echo "/sandbox/users/tleroy/AfricanRice/scripts/PipelineMappingCalling/")  <p>
-<p>\<em># Please change file path in 1_mapping.sh and in 2_snpindel_callingGVCF.sh ! </em><p>
+<p> pathtodata=$(echo "/sandbox/users/tleroy/Francesca/mapping") # the repertory containing all individus </p>
+<p> pathtoscripts=$(echo "/sandbox/users/tleroy/AfricanRice/scripts/PipelineMappingCalling/")  </p>
+<p><em># Please change file path in 1_mapping.sh and in 2_snpindel_callingGVCF.sh ! </em></p>
 
-module load java # load java if needed for your cluster # GATK requires java8 !<br>
+<p>module load java # load java if needed for your cluster # GATK requires java8 !</p>
 
-cd /sandbox/users/tleroy/Francesca/gvcf/ <br>
-\# CMD bash 2_snpindel_callingGVCF.sh [IDname] [Reference_Genome] [output_directory] [Number_of_CPU_to_use] <br>
-bash $pathtoscripts/2_snpindel_callingGVCF.sh $listacc $refile $pathtodata/ 4 <br>
-<p></code>
+<p>cd /sandbox/users/tleroy/Francesca/gvcf/ </p>
+<p><em># CMD bash 2_snpindel_callingGVCF.sh [IDname] [Reference_Genome] [output_directory] [Number_of_CPU_to_use] </em></p>
+<p> bash $pathtoscripts/2_snpindel_callingGVCF.sh $listacc $refile $pathtodata/ 4 </p>
+</code>
 
 ### 3/ Joint Genotyping (./PipelineMappingCalling)
 
