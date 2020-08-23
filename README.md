@@ -8,7 +8,7 @@ This repository regroups all scripts used to generate the inputfiles in order to
 ### 2/ Variant calling (./PipelineMappingCalling)
 
 <code>
-listacc=$(echo "pdav73") <br />
+<p> listacc=$(echo "pdav73") <p>
 refile=$(echo "/sandbox/users/tleroy/Francesca/Potra_genome2.2/Potra02_genome_softmasked.fasta" )  #reference file (need to be indexed => script_index.sh) ! <br/>
 
 pathtodata=$(echo "/sandbox/users/tleroy/Francesca/mapping") # the repertory containing all individus <br/>
