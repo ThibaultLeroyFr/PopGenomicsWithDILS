@@ -20,7 +20,7 @@ module load java # load java if needed for your cluster # GATK requires java8 !<
 cd /sandbox/users/tleroy/Francesca/gvcf/<br><br>
 # CMD bash 2_snpindel_callingGVCF.sh [IDname] [Reference_Genome] [output_directory] [Number_of_CPU_to_use] <br><br>
 bash $pathtoscripts/2_snpindel_callingGVCF.sh $listacc $refile $pathtodata/ 4<br><br>
-<\code>
+</code>
 
 ### 3/ Joint Genotyping (./PipelineMappingCalling)
 
