@@ -112,6 +112,27 @@ cd ..<br>
 Importantly, check the output of the different fasta files for CDS, most genes are expected to start by an "ATG", if it is not the case, try to use the "cutSeqGff_dec1bp.py" rather than "cutSeqGff.py" to see if the issue can be fixed (e.g. needed for the Populus tremula genome v.2.2). <br>
 
 ### 5/ Computing summary statistics (./Compute_SumStats)
+<em>FILTER ALIGNMENTS & COMPUTE STATS</em><br>
+<em>\# list of all fasta CDS</em><br>
+ls $outputdirCDS/ | grep ".fst" > $outprefix.list_CDS.txt<br>
+cd $outputdirCDS<br>
+<em>\# remove last codon</em><br>
+/home/thibault/scripts/CDS_alignments_piNpiS/removeLastStopCodon -seq ../$outprefix.list_CDS.txt -f fasta -code univ<br>
+cd ..<br>
+<em>\# generate a new list with processed alignments</em><br>
+ls $outputdirCDS/ | grep ".fst.clean.fst" > $outprefix.list_CDS.txt<br>
+<em>\# clean alignments</em><br>
+cd $outputdirCDS<br>
+/home/thibault/Clean_Alignment -seq ../$outprefix.list_CDS.txt -f fasta -n 4<br>
+cd ..<br>
+<em>\# generate a new list with processed alignments</em><br>
+ls $outputdirCDS/ | grep ".fst.clean.fst.clean.fst" > $outprefix.list_CDS.txt<br>
+<em>\# compute summary statistics (-tstv = transition transervision ratio here fixed to 2 but can be set to another value)</em><br>
+cd $outputdirCDS<br>
+/home/thibault/scripts/CDS_alignments_piNpiS/seq_stat_coding -seq ../$outprefix.list_CDS.txt -f fasta -tstv 2 -code univ -o ../$outprefix.CDS.sumstats > ../$outprefix.CDS.sumstats.info<br>
+cd ..<br>
+<em>\# keep info of genes without premature stop codons</em><br>
+grep "stop" $outprefix.CDS.sumstats.info | awk '{print $1}' > $outprefix.CDS.withprematurestopcodons<br>
 
 
 ### 6/ Generating input files for DILS
