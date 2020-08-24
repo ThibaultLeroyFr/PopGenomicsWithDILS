@@ -113,6 +113,11 @@ Importantly, check the output of the different fasta files for CDS, most genes a
 
 ### 5/ Computing summary statistics (./Compute_SumStats)
 <em>FILTER ALIGNMENTS & COMPUTE STATS</em><br>
+gfffile=$(echo "/bigvol/benoit/Analyses/Temp_Tibo/Francesca/Potra_genome2.2/Potra02_genes.gff.clean")<br>
+inputdirscaffolds=$(echo "/bigvol/benoit/Analyses/Temp_Tibo/Francesca/joint_pdav/Pdavidiana_fasta_files_withoutquantiles_scaffold")<br>
+outprefix=$(echo "Pdavidiana_withoutquantiles")<br>
+
+outputdirCDS=$(echo "$inputdirscaffolds" | sed 's/scaffold/CDS/g' | sed 's/chromosome/CDS/g')<br>
 <em>\# list of all fasta CDS</em><br>
 ls $outputdirCDS/ | grep ".fst" > $outprefix.list_CDS.txt<br>
 cd $outputdirCDS<br>
@@ -133,7 +138,8 @@ cd $outputdirCDS<br>
 cd ..<br>
 <em>\# keep info of genes without premature stop codons</em><br>
 grep "stop" $outprefix.CDS.sumstats.info | awk '{print $1}' > $outprefix.CDS.withprematurestopcodons<br>
-
+<em>\# Compute piS, piN and piN/piS over the whole set of genes </em><br>
+bash script_generate_piNpiS.sh $outprefix.CDS.sumstats<br>
 
 ### 6/ Generating input files for DILS
 
