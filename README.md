@@ -61,7 +61,7 @@ Note: Depending of the number of individuals and the length of the longest scaff
 
 <ins>4.1 Reconstruct fasta sequences</ins>
 
-<p><b><em> File & directory names (full path)</b></em></br>
+<p<em> File & directory names (full path)</em></br>
 vcffile=$(echo "/bigvol/benoit/Analyses/Temp_Tibo/Francesca/joint_pdav/merged_joint_bwa_mem_mdup_raw.filtered.vcf")</br>
 gfffile=$(echo "/bigvol/benoit/Analyses/Temp_Tibo/Francesca/Potra_genome2.2/Potra02_genes.gff.clean")</br>
 outputdirscaffolds=$(echo "/bigvol/benoit/Analyses/Temp_Tibo/Francesca/joint_pdav/Pdavidiana_fasta_files_withoutquantiles_scaffold")</br>
@@ -70,7 +70,7 @@ cutoffcovmin=$(echo "3") <em> # minimum coverage per individual (cov < minimum =
 cutoffcovmax=$(echo "50") <em> # maximum coverage per individual (cov > maximum => hard masked) </em></br>
 outprefix=$(echo "Pdavidiana_withoutquantiles")</em></br>
 
-<b><em> Main script (see script_VCF2Fasta_withcovqual.sh for all details) </b></em></br>
+<em> Main script (see script_VCF2Fasta_withcovqual.sh for all details)</em></br>
 if [ -d "$outputdirscaffolds" ]; then</br>
 ___rm $outputdirscaffolds/*.fst</br>
 else</br>
