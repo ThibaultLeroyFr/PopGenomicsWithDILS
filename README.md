@@ -86,7 +86,7 @@ The "scafflength" file is just a file containing the names of the scaffold (1st 
     
 <ins>4.3 Extract some specific features, such as CDS or genes </ins>
 
-<em>e.g. GET FASTA ON CDS</em>
+<em>e.g. GET FASTA ON CDS</em><br>
 gfffile=$(echo "/bigvol/benoit/Analyses/Temp_Tibo/Francesca/Potra_genome2.2/Potra02_genes.gff.clean")<br>
 inputdirscaffolds=$(echo "/bigvol/benoit/Analyses/Temp_Tibo/Francesca/joint_pdav/Pdavidiana_fasta_files_withoutquantiles_scaffold")<br>
 outprefix=$(echo "Pdavidiana_withoutquantiles")<br>
