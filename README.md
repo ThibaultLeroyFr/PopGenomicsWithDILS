@@ -46,6 +46,15 @@ bash $pathtoscripts/2_snpindel_callingGVCF.sh $listacc $refile $pathtodata/ 4 <b
 <em>e.g. bash 3_intervals_jointgenotyping.sh /sandbox/users/tleroy/Francesca/Potra_genome2.2/Potra02_genome_softmasked.fasta 10</em><br>
 (see "3_intervals_jointgenotyping.sh" for details) <br>
 
+<ins>1.2 Merging the outputs</ins><br>
+intervals_used=$(echo "9")<br>
+tmp_dir=$(echo "/sandbox/users/tleroy/Francesca/gvcf/tmp_vcf_Potra02_genome_softmasked.fasta")<br>
+cd $tmp_dir<br>
+for i in $(seq 1 $intervals_used); do file=$(echo "scatter""$i"".intervals.joint_bwa_mem_mdup_raw.vcf"); if [ $i == 1 ]; then cp $file merged_joint_bwa_mem_mdup_raw.vcf; else grep -v "#" $file >> merged_joint_bwa_mem_mdup_raw.vcf; fi; done<br>
+
+<ins>1.3 Variant filtering </ins><br>
+VariantFiltrationGVCF.py -q 2.0 -s 60.0 -m 40.0 -n -2.0 -r -2.0 -w 45000 -f [infile] > [outfile] <br>
+e.g. /sandbox/users/tleroy/Francesca/scripts/VariantFiltrationGVCF.py -q 2.0 -s 60.0 -m 40.0 -n -2.0 -r -2.0 -w 45000 -f merged_joint_bwa_mem_mdup_raw.vcf > merged_joint_bwa_mem_mdup_raw.filtered.vcf <br>
 
 ### 4/ Reconstructing fasta sequences & extracting genomic blocks (or CDS) (./Generate_Sequence_Blocks)
 Note: Depending of the number of individuals and the length of the longest scaffold (or chromosome), this step can be memory-intensive. 
