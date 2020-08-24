@@ -9,7 +9,7 @@ Thibault Leroy: thibault.leroy_at_univie.ac.at<br>
 ### 1/ From raw reads to read mapping (./PipelineMappingCalling)
 
 <ins>1.1 Trimming</ins><br>
-<em>java -jar /home/fs71105/francescab/software/Trimmomatic-0.39/trimmomatic-0.39.jar PE -threads [Number_CPUs] -phred33 [inputfile_rawreads_1] [inputfile_rawreads_2] [output_trimmed_paired_1] [output_trimmed_unpaired_1] [output_trimmed_paired_2] [output_trimmed_unpaired_2] </em><br>
+<em>java -jar /home/fs71105/francescab/software/Trimmomatic-0.39/trimmomatic-0.39.jar PE -threads [#CPUs] -phred33 [inputfile_rawreads_1] [inputfile_rawreads_2] [output_trimmed_paired_1] [output_trimmed_unpaired_1] [output_trimmed_paired_2] [output_trimmed_unpaired_2] </em><br>
 e.g.: java -jar /home/fs71105/francescab/software/Trimmomatic-0.39/trimmomatic-0.39.jar PE -threads 1 -phred33 /home/fs71105/francescab/pdav/pdav73R1.fastq.gz /home/fs71105/francescab/pdav/pdav73R2.fastq.gz /home/fs71105/francescab/trimming/pdav73_1_cleaned.fastq.gz /home/fs71105/francescab/trimming/pdav73_1_cleaned_unpaired.fastq.gz /home/fs71105/francescab/trimming/pdav73_2_cleaned.fastq.gz /home/fs71105/francescab/trimming/pdav73_2_cleaned_unpaired.fastq.gz  LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:50
 
 <ins>1.2 Indexing references files</ins><br>
