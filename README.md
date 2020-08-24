@@ -76,14 +76,20 @@ bash /home/thibault/scripts/script_VCF2Fasta_withcovqual.sh $vcffile $outputdirs
 
 
 ### 6/ Generating input files for DILS
-<em>\Generating 10 sets of 1000 CDS randomly selected</em></br>
+<p><em>\Generating 10 sets of 1000 CDS randomly selected</em></br>
+<em>The input files needs to look like:</em></br>
+<em>>GeneID|SpeciesName|sampleID|All1</em></br>
+ATGCGC...</em></br>
+>GeneID|SpeciesName|sampleID|All2</em></br>
+ATGCAC...</em></br>
+ 
 
-for i in {1..10}; do
-____rm Sampling_1000CDSrandom_$i.fas
-____echo "generating file Sampling_1000CDSrandom_$i.fas"
-____while read line; do
-________locus=$(basename "$line" ".fst")
-________echo -n "." 
-________less ./CDS_sampling$i/$line | sed "s/pdav/$locus|Populus_davidiana|pdav/g"  | sed 's/\.1$/|All1/g' | sed 's/\.2$/|All2/g' >> Sampling_1000CDSrandom_$i.fas
-____done < CDSsampling$i.txt
-done
+for i in {1..10}; do</br>
+____rm Sampling_1000CDSrandom_$i.fas</br>
+____echo "generating file Sampling_1000CDSrandom_$i.fas"</br>
+____while read line; do</br>
+________locus=$(basename "$line" ".fst")</br>
+________echo -n "." </br>
+________less ./CDS_sampling$i/$line | sed "s/pdav/$locus|Populus_davidiana|pdav/g"  | sed 's/\.1$/|All1/g' | sed 's/\.2$/|All2/g' >> Sampling_1000CDSrandom_$i.fas</br>
+____done < CDSsampling$i.txt</br>
+done</br></p>
