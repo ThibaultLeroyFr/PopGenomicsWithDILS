@@ -76,14 +76,15 @@ bash /home/thibault/scripts/script_VCF2Fasta_withcovqual.sh $vcffile $outputdirs
 
 
 ### 6/ Generating input files for DILS
-<p><em>Generating 10 sets of 1000 CDS randomly selected</em></br>
+
 <em>The input files need to be formated as follows:</em></br>
 <em>>GeneID|SpeciesName|sampleID|All1</em></br>
 ATGCGC...</em></br>
 >GeneID|SpeciesName|sampleID|All2</em></br>
 ATGCAC...</em></br></p>
- 
 
+<p><em>For example, to generate 10 sets of 1000 CDS randomly selected</em></br>
+Randomly sample 1000 genes among all the gene sequences (geneID.fst files). List all sampled files in a "CDSsampling1.txt", do this step 10 times.</em></br>
 for i in {1..10}; do</br>
 ____rm Sampling_1000CDSrandom_$i.fas</br>
 ____echo "generating file Sampling_1000CDSrandom_$i.fas"</br>
