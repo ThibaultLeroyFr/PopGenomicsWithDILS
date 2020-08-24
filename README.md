@@ -41,8 +41,10 @@ bash $pathtoscripts/2_snpindel_callingGVCF.sh $listacc $refile $pathtodata/ 4 <b
 
 
 ### 3/ Joint Genotyping & SNP filtering (./PipelineMappingCalling)
-
-
+<ins>1.1 Joint Genotyping (using intervals to perform this step on several CPUs)</ins><br>
+<em>bash 3_intervals_jointgenotyping.sh [refernece_genome] [#CPUs]</em><br>
+<em>e.g. bash 3_intervals_jointgenotyping.sh /sandbox/users/tleroy/Francesca/Potra_genome2.2/Potra02_genome_softmasked.fasta 10</em><br>
+(see "3_intervals_jointgenotyping.sh" for details) <br>
 
 
 ### 4/ Reconstructing fasta sequences & extracting genomic blocks (or CDS) (./Generate_Sequence_Blocks)
