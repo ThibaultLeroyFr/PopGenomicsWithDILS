@@ -109,9 +109,11 @@ cd ..<br>
 <em>chr1    maker   CDS     9487    9559    .       -       2       Name=Potra2n1c1.3; </em></br>
 <em>chr1    maker   CDS     9669    9753    .       -       0       Name=Potra2n1c1.3; </em></br>
 
-Importantly, check the output of the different fasta files for CDS, most genes are expected to start by an "ATG", if it is not the case, try to use the "cutSeqGff_dec1bp.py" rather than "cutSeqGff.py" to see if the issue can be fixed (e.g. needed for the Populus tremula genome v.2.2). <br>
+One file is expected to be generated per geneID (geneID.fst). Importantly, check the output of the different fasta files for CDS, most genes are expected to start by an "ATG" and to end by a stop codon. If it is not the case, try to use the "cutSeqGff_dec1bp.py" script rather than "cutSeqGff.py" to see if the issue can be fixed (e.g. this is typically needed for the Populus tremula genome v.2.2). <br>
 
 ### 5/ Computing summary statistics (./Compute_SumStats)
+
+<ins>5.1 piN, piS and piN/piS ratiosn on CDS</ins>
 <em>FILTER ALIGNMENTS & COMPUTE STATS</em><br>
 gfffile=$(echo "/bigvol/benoit/Analyses/Temp_Tibo/Francesca/Potra_genome2.2/Potra02_genes.gff.clean")<br>
 inputdirscaffolds=$(echo "/bigvol/benoit/Analyses/Temp_Tibo/Francesca/joint_pdav/Pdavidiana_fasta_files_withoutquantiles_scaffold")<br>
