@@ -75,4 +75,15 @@ bash /home/thibault/scripts/script_VCF2Fasta_withcovqual.sh $vcffile $outputdirs
 ### 5/ Computing summary statistics (./Compute_SumStats)
 
 
-### 6/ Generating input files for DILS (./)
+### 6/ Generating input files for DILS
+<em>\Generating 10 sets of 1000 CDS randomly selected</em></br>
+
+for i in {1..10}; do
+____rm Sampling_1000CDSrandom_$i.fas
+____echo "generating file Sampling_1000CDSrandom_$i.fas"
+____while read line; do
+________locus=$(basename "$line" ".fst")
+________echo -n "." 
+________less ./CDS_sampling$i/$line | sed "s/pdav/$locus|Populus_davidiana|pdav/g"  | sed 's/\.1$/|All1/g' | sed 's/\.2$/|All2/g' >> Sampling_1000CDSrandom_$i.fas
+____done < CDSsampling$i.txt
+done
