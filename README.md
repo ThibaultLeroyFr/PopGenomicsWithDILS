@@ -86,6 +86,30 @@ The "scafflength" file is just a file containing the names of the scaffold (1st 
     
 <ins>4.3 Extract some specific features, such as CDS or genes </ins>
 
+<em>e.g. GET FASTA ON CDS</em>
+gfffile=$(echo "/bigvol/benoit/Analyses/Temp_Tibo/Francesca/Potra_genome2.2/Potra02_genes.gff.clean")<br>
+inputdirscaffolds=$(echo "/bigvol/benoit/Analyses/Temp_Tibo/Francesca/joint_pdav/Pdavidiana_fasta_files_withoutquantiles_scaffold")<br>
+outprefix=$(echo "Pdavidiana_withoutquantiles")<br>
+
+awk '$3 == "CDS" {print $0}' $gfffile | awk '{print $1}' | sort | uniq > $gfffile.scaffIDwithCDS<br>
+outputdirCDS=$(echo "$inputdirscaffolds" | sed 's/scaffold/CDS/g' | sed 's/chromosome/CDS/g')<br>
+if [ -d "$outputdirCDS" ]; then<br>
+____rm $outputdirCDS/*.fst<br>
+else<br>
+____mkdir "$outputdirCDS"<br>
+fi<br>
+cd $outputdirCDS<br>
+while read line; do python /media/bigvol/benoit/Scripts/cutSeqGff.py $outputdirscaffolds/$line.fst $gfffile $line CDS; done < $gfffile.scaffIDwithCDS<br>
+cd ..<br>
+
+<em>The gff files need to be as follows (the tag Name=XXX is particularly important; + same names for all CDS exons of the same gene)  </em></br>
+<em>chr1    maker   gene    8865    11259   .       -       .       Name=Potra2n1c1;  </em></br>
+<em>chr1    maker   mRNA    8865    10802   .       -       .       Name=Potra2n1c1.3; </em></br>
+<em>chr1    maker   CDS     8865    9054    .       -       1       Name=Potra2n1c1.3; </em></br>
+<em>chr1    maker   CDS     9487    9559    .       -       2       Name=Potra2n1c1.3; </em></br>
+<em>chr1    maker   CDS     9669    9753    .       -       0       Name=Potra2n1c1.3; </em></br>
+
+Importantly, check the output of the different fasta files for CDS, most genes are expected to start by an "ATG", if it is not the case, try to use the "cutSeqGff_dec1bp.py" rather than "cutSeqGff.py" to see if the issue can be fixed (e.g. needed for the Populus tremula genome v.2.2). <br>
 
 ### 5/ Computing summary statistics (./Compute_SumStats)
 
