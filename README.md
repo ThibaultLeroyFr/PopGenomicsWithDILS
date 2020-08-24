@@ -25,13 +25,13 @@ java -jar /home/fs71105/francescab/software/picard/picard.jar CreateSequenceDict
 <ins>1.3 Mapping</ins><br>
 
 
-### 2/ Variant calling (./PipelineMappingCalling)
+### 2/ Generating gvcf files (./PipelineMappingCalling)
 
 <p> listacc=$(echo "pdav73")  <em> #SampleID </em></br>
  refile=$(echo "/sandbox/users/tleroy/Francesca/Potra_genome2.2/Potra02_genome_softmasked.fasta" ) <em> #reference file (need to be indexed => script_index.sh) ! </em><br>
 pathtodata=$(echo "/sandbox/users/tleroy/Francesca/mapping") <em> # the repertory containing all individus  </em><br>
  pathtoscripts=$(echo "/sandbox/users/tleroy/AfricanRice/scripts/PipelineMappingCalling/") <br>
-<em># Please change file path in 1_mapping.sh and in 2_snpindel_callingGVCF.sh ! </em><br>
+<em># Please read the file 2_snpindel_callingGVCF.sh (& change file & programs paths)! </em><br>
 
 module load java <em> # load java if needed for your computing cluster (# GATK requires java8) !</em><br>
 
@@ -41,25 +41,25 @@ bash $pathtoscripts/2_snpindel_callingGVCF.sh $listacc $refile $pathtodata/ 4 <b
 
 
 ### 3/ Joint Genotyping & SNP filtering (./PipelineMappingCalling)
-<ins>1.1 Joint Genotyping (using intervals to perform this step on several CPUs)</ins><br>
+<ins>3.1 Joint Genotyping (using intervals to perform this step on several CPUs)</ins><br>
 <em>bash 3_intervals_jointgenotyping.sh [refernece_genome] [#CPUs]</em><br>
 <em>e.g. bash 3_intervals_jointgenotyping.sh /sandbox/users/tleroy/Francesca/Potra_genome2.2/Potra02_genome_softmasked.fasta 10</em><br>
 (see "3_intervals_jointgenotyping.sh" for details) <br>
 
-<ins>1.2 Merging the outputs</ins><br>
+<ins>3.2 Merging the outputs</ins><br>
 intervals_used=$(echo "9")<br>
 tmp_dir=$(echo "/sandbox/users/tleroy/Francesca/gvcf/tmp_vcf_Potra02_genome_softmasked.fasta")<br>
 cd $tmp_dir<br>
 for i in $(seq 1 $intervals_used); do file=$(echo "scatter""$i"".intervals.joint_bwa_mem_mdup_raw.vcf"); if [ $i == 1 ]; then cp $file merged_joint_bwa_mem_mdup_raw.vcf; else grep -v "#" $file >> merged_joint_bwa_mem_mdup_raw.vcf; fi; done<br>
 
-<ins>1.3 Variant filtering </ins><br>
+<ins>3.3 Variant filtering </ins><br>
 VariantFiltrationGVCF.py -q 2.0 -s 60.0 -m 40.0 -n -2.0 -r -2.0 -w 45000 -f [infile] > [outfile] <br>
 e.g. /sandbox/users/tleroy/Francesca/scripts/VariantFiltrationGVCF.py -q 2.0 -s 60.0 -m 40.0 -n -2.0 -r -2.0 -w 45000 -f merged_joint_bwa_mem_mdup_raw.vcf > merged_joint_bwa_mem_mdup_raw.filtered.vcf <br>
 
 ### 4/ Reconstructing fasta sequences & extracting genomic blocks (or CDS) (./Generate_Sequence_Blocks)
 Note: Depending of the number of individuals and the length of the longest scaffold (or chromosome), this step can be memory-intensive. 
 
-<ins>1.1 Reconstruct fasta sequences</ins>
+<ins>4.1 Reconstruct fasta sequences</ins>
 
 <p><b><em> File & directory names (full path)</b></em></br>
 vcffile=$(echo "/bigvol/benoit/Analyses/Temp_Tibo/Francesca/joint_pdav/merged_joint_bwa_mem_mdup_raw.filtered.vcf")</br>
@@ -78,10 +78,10 @@ ___mkdir "$outputdirscaffolds"</br>
 fi</br>
 bash /home/thibault/scripts/script_VCF2Fasta_withcovqual.sh $vcffile $outputdirscaffolds $cutoffqualitybases $cutoffcovmin $cutoffcovmax</br>
 
-<ins>1.2 Extract genomic windows </ins>
+<ins>4.2 Extract genomic windows </ins>
     
     
-<ins>1.3 Extract some specific features, such as CDS or genes </ins>
+<ins>4.3 Extract some specific features, such as CDS or genes </ins>
 
 
 ### 5/ Computing summary statistics (./Compute_SumStats)
