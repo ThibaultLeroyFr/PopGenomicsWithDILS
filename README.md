@@ -81,7 +81,7 @@ bash /home/thibault/scripts/script_VCF2Fasta_withcovqual.sh $vcffile $outputdirs
 <em>>GeneID|SpeciesName|sampleID|All1</em></br>
 ATGCGC...</em></br>
 >GeneID|SpeciesName|sampleID|All2</em></br>
-ATGCAC...</em></br>
+ATGCAC...</em></br></p>
  
 
 for i in {1..10}; do</br>
