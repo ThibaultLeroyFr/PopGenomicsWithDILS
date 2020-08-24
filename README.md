@@ -113,7 +113,7 @@ One file is expected to be generated per geneID (geneID.fst). Importantly, check
 
 ### 5/ Computing summary statistics (./Compute_SumStats)
 
-<ins>5.1 piN, piS and piN/piS ratiosn on CDS</ins>
+<ins>5.1 piN, piS and piN/piS ratiosn on CDS</ins><br>
 <em>FILTER ALIGNMENTS & COMPUTE STATS</em><br>
 gfffile=$(echo "/bigvol/benoit/Analyses/Temp_Tibo/Francesca/Potra_genome2.2/Potra02_genes.gff.clean")<br>
 inputdirscaffolds=$(echo "/bigvol/benoit/Analyses/Temp_Tibo/Francesca/joint_pdav/Pdavidiana_fasta_files_withoutquantiles_scaffold")<br>
