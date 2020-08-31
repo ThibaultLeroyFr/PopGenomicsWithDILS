@@ -68,7 +68,7 @@ outputdirscaffolds=$(echo "/bigvol/benoit/Analyses/Temp_Tibo/Francesca/joint_pda
 cutoffqualitybases=$(echo "20") <em> # minimum illumina quality at the base position, here >= 20 </em></br>
 cutoffcovmin=$(echo "3") <em> # minimum coverage per individual (cov < minimum => position will be hard masked = "N") </em></br>
 cutoffcovmax=$(echo "50") <em> # maximum coverage per individual (cov > maximum => hard masked) </em></br>
-outprefix=$(echo "Pdavidiana_withoutquantiles")</em></br><\p>
+outprefix=$(echo "Pdavidiana_withoutquantiles")</em></br></p>
 
 <em> Main script (see script_VCF2Fasta_withcovqual.sh for all details)</em></br>
 if [ -d "$outputdirscaffolds" ]; then</br>
