@@ -61,14 +61,14 @@ Note: Depending of the number of individuals and the length of the longest scaff
 
 <ins>4.1 Reconstruct fasta sequences</ins>
 
-<p<em> File & directory names (full path)</em></br>
+<p><em> File & directory names (full path)</em></br>
 vcffile=$(echo "/bigvol/benoit/Analyses/Temp_Tibo/Francesca/joint_pdav/merged_joint_bwa_mem_mdup_raw.filtered.vcf")</br>
 gfffile=$(echo "/bigvol/benoit/Analyses/Temp_Tibo/Francesca/Potra_genome2.2/Potra02_genes.gff.clean")</br>
 outputdirscaffolds=$(echo "/bigvol/benoit/Analyses/Temp_Tibo/Francesca/joint_pdav/Pdavidiana_fasta_files_withoutquantiles_scaffold")</br>
 cutoffqualitybases=$(echo "20") <em> # minimum illumina quality at the base position, here >= 20 </em></br>
 cutoffcovmin=$(echo "3") <em> # minimum coverage per individual (cov < minimum => position will be hard masked = "N") </em></br>
 cutoffcovmax=$(echo "50") <em> # maximum coverage per individual (cov > maximum => hard masked) </em></br>
-outprefix=$(echo "Pdavidiana_withoutquantiles")</em></br>
+outprefix=$(echo "Pdavidiana_withoutquantiles")</em></br><\p>
 
 <em> Main script (see script_VCF2Fasta_withcovqual.sh for all details)</em></br>
 if [ -d "$outputdirscaffolds" ]; then</br>
@@ -101,15 +101,15 @@ bash /home/thibault/scripts/script_VCF2Fasta_withcovqual.sh $vcffile $outputdirs
 <em>____start=$(echo "1" )</em></br>
 <em>____end=$(echo "$windowsize")</em></br>
 <em>____for i in $(eval echo "{1..$nbwindows}"); do</em></br>
-<em>________/# generate a bed</em></br>
+<em>________# generate a bed</em></br>
 <em>________rm ./$outprefix.bed.tmp/$outprefix.$windowsize.tmp</em></br>
 <em>________while read line; do # for each individual, print a line in a tmp bed file</em></br>
 <em>____________echo "$line.1 $start  $end" | sed 's/ \+/\t/g' >> ./$outprefix.bed.tmp/$outprefix.$windowsize.tmp</em></br>
 <em>____________echo "$line.2 $start  $end" | sed 's/ \+/\t/g' >> ./$outprefix.bed.tmp/$outprefix.$windowsize.tmp</em></br>
 <em>________done < $vcffile.IDs</em></br>
-<em>________/# keep the information in a sumup bed file</em></br>
+<em>________# keep the information in a sumup bed file</em></br>
 <em>________echo "$scaffold $start  $end" | sed 's/ \+/\t/g' >> $outprefix.$windowsize.bed</em></br>
-<em>________/# bedtools getfasta</em></br>
+<em>________# bedtools getfasta</em></br>
 <em>________rm  ./$directory/$scaffold.fst.fai # rm to reinitiate the fai</em></br>
 <em>________bedtools getfasta -fi ./$directory/$scaffold.fst -bed ./$outprefix.bed.tmp/$outprefix.$windowsize.tmp -fo ./$outprefix.bed.tmp/$outprefix.$scaffold.$start.$end.fasta</em></br>
 <em>________echo "$outprefix.$scaffold.$start.$end.fasta" >> list_running_seq.txt</em></br>
