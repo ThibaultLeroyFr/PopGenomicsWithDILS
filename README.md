@@ -106,7 +106,7 @@ bash /home/thibault/scripts/script_VCF2Fasta_withcovqual.sh $vcffile $outputdirs
 <em>________while read line; do # for each individual, print a line in a tmp bed file</em></br>
 <em>____________echo "$line.1 $start  $end" | sed 's/ \+/\t/g' >> ./$outprefix.bed.tmp/$outprefix.$windowsize.tmp</em></br>
 <em>____________echo "$line.2 $start  $end" | sed 's/ \+/\t/g' >> ./$outprefix.bed.tmp/$outprefix.$windowsize.tmp</em></br>
-<em>________done < $vcffile.IDs</em></br>
+<em>________ done < $vcffile.IDs</em></br>
 <em>________# keep the information in a sumup bed file</em></br>
 <em>________echo "$scaffold $start  $end" | sed 's/ \+/\t/g' >> $outprefix.$windowsize.bed</em></br>
 <em>________# bedtools getfasta</em></br>
