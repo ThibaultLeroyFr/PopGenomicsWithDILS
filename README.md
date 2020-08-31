@@ -96,12 +96,12 @@ bash /home/thibault/scripts/script_VCF2Fasta_withcovqual.sh \$vcffile \$outputdi
 <em>\### generate a list of uniq individual</em></br>
 <em>head -50000 $vcffile.qualsummary.ind | awk '{print $1}' | sort | uniq > $vcffile.IDs</em></br>
 <em>while read line; do</em></br>
-<em>\____scaffold=$(echo "$line" | awk '{print $1}')</em></br>
-<em>\____lengthscaff=$(echo "$line" | awk '{print $2}')</em></br>
-<em>\____nbwindows=$(echo "($lengthscaff / $windowsize ) + 1" | bc)</em></br>
-<em>\____start=$(echo "1" ) </em></br>
-<em>\____end=$(echo "$windowsize")</em></br>
-<em>\____for i in $(eval echo "{1..\$nbwindows}"); do </em></br>
+<em>\_\_\_\_scaffold=$(echo "$line" | awk '{print $1}')</em></br>
+<em>\_\_\_\_lengthscaff=$(echo "$line" | awk '{print $2}')</em></br>
+<em>\_\_\_\_nbwindows=$(echo "($lengthscaff / $windowsize ) + 1" | bc)</em></br>
+<em>\_\_\_\_start=$(echo "1" ) </em></br>
+<em>\_\_\_\_end=$(echo "$windowsize")</em></br>
+<em>\_\_\_\_for i in $(eval echo "{1..\$nbwindows}"); do </em></br>
 <em>\________# generate a bed </em></br>
 <em>\________rm ./$outprefix.bed.tmp/$outprefix.$windowsize.tmp</em></br>
 <em>\________while read line; do # for each individual, print a line in a tmp bed file </em></br>
