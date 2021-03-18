@@ -23,7 +23,8 @@ java -jar /home/fs71105/francescab/software/picard/picard.jar CreateSequenceDict
       O=/home/fs71105/francescab/Potra_genome2.2/Potra02_genome_softmasked.dict <br> </p>
 
 <ins>1.3 Mapping</ins><br>
-
+<p>bash 1_mapping.sh [sampleID] [dir_fastq] [trimmed_fastq_paired_1] [trimmed_fastq_paired_2] [trimmed_fastq_unpaired_1] [trimmed_fastq_unpaired_2] [REF_genome]  <br>       
+e.g. bash 1_mapping.sh pdav73 /bigvol/benoit/Analyses/Temp_Tibo/Puce_oak/raw_data/ pdav73_1_cleaned.fastq.gz pdav73_2_cleaned.fastq.gz pdav73_1_cleaned_unpaired.fastq.gz pdav73_2_cleaned_unpaired.fastq.gz /bigvol/benoit/Analyses/Temp_Tibo/Puce_oak/raw_data/Qrob_PM1N.fa <br></p>
 
 ### 2/ Generating gvcf files (./PipelineMappingCalling)
 
